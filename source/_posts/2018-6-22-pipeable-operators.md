@@ -1,5 +1,5 @@
 ---
-title: [转载]RxJs 6 中 Pipeable 操作符     
+title: RxJs 6 中 Pipeable 操作符     
 date: 2018-06-22
 ---
 
@@ -271,4 +271,5 @@ import { reduce } from 'rxjs/operators/reduce';
 ```
 
 ### See also
-* [Pipeable Operators](https://github.com/ReactiveX/rxjs/blob/master/doc/pipeable-operators.md){target: _blank}
+* [Pipeable Operators](https://github.com/ReactiveX/rxjs/blob/master/doc/pipeable-operators.md){target: "_blank"}   
+* [Pipeable 操作符](https://cn.rx.js.org/manual/usage.html)
