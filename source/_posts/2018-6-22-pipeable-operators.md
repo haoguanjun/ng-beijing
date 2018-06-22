@@ -271,5 +271,5 @@ import { reduce } from 'rxjs/operators/reduce';
 ```
 
 ### See also
-* [Pipeable Operators](https://github.com/ReactiveX/rxjs/blob/master/doc/pipeable-operators.md){target: "_blank"}   
+* [Pipeable Operators](https://github.com/ReactiveX/rxjs/blob/master/doc/pipeable-operators.md){:target: "_blank"}   
 * [Pipeable 操作符](https://cn.rx.js.org/manual/usage.html)
