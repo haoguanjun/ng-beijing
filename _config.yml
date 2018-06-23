@@ -43,6 +43,9 @@ highlight:
   line_number: true
   auto_detect: false
   tab_replace:
+auto_excerpt:
+  enable: true
+  length: 150
   
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
