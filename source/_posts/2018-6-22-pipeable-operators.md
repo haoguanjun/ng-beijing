@@ -1,6 +1,7 @@
 ---
 title: RxJs 6 中 Pipeable 操作符     
 date: 2018-06-22
+categories: rxjs
 ---
 
 原文地址：[[译] Pipeable 操作符](https://juejin.im/post/5a5d4df26fb9a01cbb391d8f)   
