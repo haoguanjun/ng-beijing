@@ -1,5 +1,6 @@
 ---
 title: 添加 Travis 集成!
+date: 2018-06-17
 ---
 今天添加了 Travis 的自动化构建和部署支持。
 1. [Travis 官方网站](https://travis-ci.org/)
