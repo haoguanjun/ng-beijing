@@ -14,7 +14,7 @@ categories: rxjs
 
 从5.5版本开始我们提供了 “pipeable 操作符”，它们可以通过 rxjs/operators 来访问 (注意 "operators" 是复数)。相比较于通过在 rxjs/add/operator/* 中以“打补丁”的方式来获取需要用到的操作符，这是一种更好的方式。
 
-<!−− more −−>
+<!-- more -->
 
 注意 : 如果使用 rxjs/operators 而不修改构建过程的话会导致更大的包。详见下面的[已知问题](https://juejin.im/post/5a5d4df26fb9a01cbb391d8f#%E5%B7%B2%E7%9F%A5%E9%97%AE%E9%A2%98)一节。
 
