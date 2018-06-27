@@ -3,7 +3,6 @@ title: RxJs 6 中 Pipeable 操作符
 date: 2018-06-22
 categories: rxjs
 ---
-## excerpt
 从5.5版本开始我们提供了 “pipeable 操作符”，它们可以通过 rxjs/operators 来访问 (注意 "operators" 是复数)。相比较于通过在 rxjs/add/operator/* 中以“打补丁”的方式来获取需要用到的操作符，这是一种更好的方式。
 <!-- more -->
 
