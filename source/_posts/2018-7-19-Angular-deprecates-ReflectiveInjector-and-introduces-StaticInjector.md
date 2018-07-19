@@ -8,7 +8,7 @@ Angular 将 ReflectiveInjector 退役了，它是什么？如果在你的项目�
 
 ### 为什么 ReflectiveInjector 是反射式的？
 
-考虑如下的两个类定义，其中 Class A 注入了 Class B，这意味着，我们在获得 A 的实例的时候，也必须获得 B 的实例。
+考虑如下的两个类定义，其中 Class A 注入了 Class B，这意味着，我们在获得 A 的实例的时候，也必须获得 B 的实例。但是，注入器 Injector 如何知道这一点呢？
 
 ```typescript
 class B {}
