@@ -22,7 +22,7 @@ import { Component } from '@angular/core';
   template: `
   <div>
     <p>
-➥      {{ title }} works!!
+➥      { { title } } works!!
 ➥      <app-todo [item]='title'></app-todo>
     </p>
   </div>
@@ -52,7 +52,7 @@ import { Component } from '@angular/core';
   <div>
     <p>
 ➥      <input [(ngModel)]="msg" />
-        <b> {{ msg }} </b>
+        <b> { { msg } } </b>
     </p>
   </div>
   `,
