@@ -267,9 +267,9 @@ Angular 对于模板中的每个节点生成等价的 JavaScript 代码，比如
    
 如果文本节点是绑定的，文本将被打破到每个绑定中：
 ```html
-<h1>Hello {{name}} and another {{prop}}</h1>
+<h1>Hello { {name} } and another { {prop} }</h1>
 ["Hello "," and another "]
-<p>Hi {{name}}, you are welcome</p>
+<p>Hi { {name} }, you are welcome</p>
 ["Hi ",", you are welcome"]
 ``````
 将被 textDef 用于生成绑定：
