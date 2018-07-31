@@ -9,6 +9,7 @@ Angular 中的关键特性是 DOM 更新、模板和属性绑定。然而，后�
 ### Data Binding
 Data Binding 是保持组件的变量与 UI 同步的机制。   
 在 Angular 中，有两种类型的数据绑定：
+
 * 单向数据绑定
 * 双向数据绑定
 
@@ -21,7 +22,7 @@ import { Component } from '@angular/core';
   template: `
   <div>
     <p>
-➥      {{title}} works!!
+➥      {{ title }} works!!
 ➥      <app-todo [item]='title'></app-todo>
     </p>
   </div>
@@ -36,7 +37,7 @@ export class AppComponent {
 }
 ``````
 类中的变量 title 绑定到模板中。Angular 在应用运行时，使用文本 app 替换绑定。如果 title 的由函数 changeTilte() 修改，DOM 就会更新以反映新的值。不管什么时候，只要数据绑定的类变量发生了变化，模板都会更新以包含新值。这里的数据绑定处理是单向的。   
-同时，单向数据绑定可以使用 {}, 或者 [] 或者 * 来完成。
+同时，单向数据绑定可以使用 { }, 或者 [ ] 或者 * 来完成。
 
 #### 双向数据绑定
 
@@ -51,7 +52,7 @@ import { Component } from '@angular/core';
   <div>
     <p>
 ➥      <input [(ngModel)]="msg" />
-        <b>{{msg}}</b>
+        <b> {{ msg }} </b>
     </p>
   </div>
   `,
