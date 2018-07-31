@@ -70,7 +70,7 @@ export class AppComponent {
 模板的 HTML 和组件类都可以改变数据绑定变量的值。
 * 在输入框中的值发生变化时，更新从模板到类中
 * 在绑定属性发生变化的时候，更新从类到模板中，然后，模板的 HTML 也发生了变化。
-在 Angular 中，数据绑定是非常强大和有用的特性，本文我们将展示单向数据绑定 {{ \}\} 是如何工作的。
+在 Angular 中，数据绑定是非常强大和有用的特性，本文我们将展示单向数据绑定 { { } } 是如何工作的。
 
 ### 示例
 
@@ -84,7 +84,7 @@ import { Component } from '@angular/core';
   template: `
   <div>
     <p>
-      {{title}} works!!
+      { {title} } works!!
     </p>
   </div>
   `,
@@ -246,7 +246,7 @@ export function elementDef(
 #### evid => viewDef
 Angular 对于模板中的每个节点生成等价的 JavaScript 代码，比如我们的绑定：
 
-   {{title}} works!!
+   { {title} } works!!
    
 将被编译为：
  
@@ -299,7 +299,7 @@ function _addInterpolationPart(value: any, binding: BindingDef): string {
 在上面我们看到了一系列的 Angular 表示对象，现在，我们展示在 DOM 初始化时和变更检测调用时如何更新 DOM。   
 在前面，我们的绑定：
    
-   {{title}} works!!
+   { {title} } works!!
 
 被如下执行：
 
@@ -494,7 +494,7 @@ Ok, 现在，我们知道了 angular 如何表示我们的模板表达式，注�
 
 它们被 NgZone 所封装，有一个 Angular 封装了 Zone.js。NgZone 添加了一个扩展，由 zone.js 发射的事件可以被订阅，变更检测循环被执行。
 
-在 AppComponent 中，我们有一个方法 changeTitle ，其执行时可以导致 title 属性变更，在属性变更时， {{title}} 将被更新，如何做到呢？
+在 AppComponent 中，我们有一个方法 changeTitle ，其执行时可以导致 title 属性变更，在属性变更时， { {title} } 将被更新，如何做到呢？
 
 比如说，当按钮点击时，属性被更新，我们更新模板，添加一个按钮，带有 (click) 监听器。
 ```typescript
@@ -504,7 +504,7 @@ import { Component } from '@angular/core';
   template: `
   <div>
     <p>
-      {{title}} works!!
+      { {title} } works!!
     </p>
 ➥  <button (click)="changeTitle()">ChangeTitle</button>
   </div>
