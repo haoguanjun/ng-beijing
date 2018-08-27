@@ -1,6 +1,6 @@
----   
+---
 title: 分析变更检测代价     
-date: 2018-07-27
+date: 2018-08-27
 categories: angular
 ---
 通过调用这个函数，我们在 window.ng 对象上会获得一个额外的工具，叫做 profiler。profiler 中有一个函数叫做 timeChangeDetection。当这个函数被调用时，会在控制台打印出变更检测的周期和每个周期的运行时间。
