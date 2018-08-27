@@ -3,7 +3,7 @@ title: ngPreserveWhitespaces和NgNonBindable
 date: 2018-08-27
 categories: angular
 ---
-在 Angular 中，我们可能需要精确控制空格的使用，以及希望使用不绑定的 \{\{ \}\} 的字符串。
+在 Angular 中，我们可能需要精确控制空格的使用，以及希望使用不绑定的 { { } } 的字符串。
 这两个指令可以帮助我们方便地进行格式化。
 <!-- more -->
 
