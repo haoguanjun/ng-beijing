@@ -27,7 +27,7 @@ categories: angular
     <!-- All whitespace here will be preserved -->
 </div>
 ```
-另外，我们有时可能需要在文档中使用{{ }}，但 Angular 会把这一符号看作插值，并会计算括号中内容的值。这时，可以将 ngNonBindable 指令插入父元素中，让 Angular 忽略其中的括号。示例用法如下：   
+另外，我们有时可能需要在文档中使用 { { } }，但 Angular 会把这一符号看作插值，并会计算括号中内容的值。这时，可以将 ngNonBindable 指令插入父元素中，让 Angular 忽略其中的括号。示例用法如下：   
 ```html
-<span ngNonBindable>{{ this will not be evaluated }}</span>
+<span ngNonBindable>{ { this will not be evaluated } }</span>
 ```
