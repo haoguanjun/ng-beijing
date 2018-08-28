@@ -22,5 +22,12 @@ platformBrowserDynamic().bootstrapModule(AppModule).then(ref => {
 ng.profiler.timeChangeDetection();
 ```
 
+可以传递一个参数
+```javascript
+ng.profiler.timeChangeDetection({record: true})
+```
+
+![](https://angularfirebase.com/images/change-profile.gif)
+
 源码：[angular/packages/platform-browser/src/browser/tools/common_tools.ts](https://github.com/angular/angular/blob/cf0968f98e844043a0f6c2548201f3c0dfd329a7/packages/platform-browser/src/browser/tools/common_tools.ts)
 
