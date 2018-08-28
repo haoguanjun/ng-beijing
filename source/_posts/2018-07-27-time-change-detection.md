@@ -21,3 +21,6 @@ platformBrowserDynamic().bootstrapModule(AppModule).then(ref => {
 ```javascript
 ng.profiler.timeChangeDetection();
 ```
+
+源码：[angular/packages/platform-browser/src/browser/tools/common_tools.ts](https://github.com/angular/angular/blob/cf0968f98e844043a0f6c2548201f3c0dfd329a7/packages/platform-browser/src/browser/tools/common_tools.ts)
+
