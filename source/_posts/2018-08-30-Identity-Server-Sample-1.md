@@ -4,11 +4,12 @@ date: 2018-08-30
 categories: IdentityServer4
 ---
 IdentityServer4 快速入门，官网示例基于 .NET Core 2.0，这里使用 .NET Core 2.1 重新实现。
-
-官网示例地址：https://github.com/IdentityServer/IdentityServer4.Samples/tree/release/Quickstarts/1_ClientCredentials。
 <!-- more -->
 
 ## IdentityServer4 快速入门之一
+
+IdentityServer4 官网示例地址：https://github.com/IdentityServer/IdentityServer4.Samples/tree/release/Quickstarts/1_ClientCredentials。
+此示例使用 .NET Core 2.0 开发，我们这里升级为 .NET Core 2.1 版本。
 
 ### 快速构建一个基本的 API 服务
 我们快速构建一个基本的 API 服务器，后继我们会使用 IdentityServer4 保护起来，但是，在开始的时候，它是可以直接访问的。
@@ -514,46 +515,9 @@ var response = await client.RequestClientCredentialsAsync("scope");
 var token = response.AccessToken;
 ```
 
-#### IdentityModel2
+##### IdentityModel2
 
 新的 [IdentityModel2](https://identitymodel.readthedocs.io/en/latest/) 项目提供了更佳的支持。
-
-##### 端点发现
-
-```csharp
-var client = new HttpClient();
-
-var disco = await client.GetDiscoveryDocumentAsync("https://demo.identityserver.io");
-if (disco.IsError) throw new Exception(disco.Error);
-
-var tokenEndpoint = disco.TokenEndpoint;
-```
-
- ##### 请求 access token
-
-```csharp
-var client = new HttpClient();
-
-var response = await client.RequestTokenAsync(new TokenRequest
-{
-    Address = "https://demo.identityserver.io/connect/token",
-    GrantType = "custom",
-
-    ClientId = "client",
-    ClientSecret = "secret",
-
-    Parameters =
-    {
-        { "scope", "api1" }
-    }
-});
-
-var token = response.AccessToken;
-```
-
-
-
-
 
 #### 创建客户端项目
 
@@ -674,7 +638,6 @@ namespace Client
     }
 }
 ```
-
 ##### 使用 IdentityModel2 语法访问
 
 ###### 发现服务端点
@@ -881,5 +844,3 @@ info: IdentityServer4.Hosting.IdentityServerMiddleware[0]
 info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
       Request finished in 0.5583ms 200 application/json; charset=UTF-8
 ```
-
-
