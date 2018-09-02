@@ -1,7 +1,8 @@
 ---
 title: 没错，我就是要吹爆Angular     
 date: 2018-06-25
-categories: Angular
+categories: angular
+tags: [angular]
 ---
 当你站在巨人的肩膀上，完全适应了Angular的编程范式，你才会养成对于优秀实现的不懈追求，并且这些习惯都是有益的。
 <!-- more -->
