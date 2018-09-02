@@ -1,7 +1,8 @@
 ---
 title: Angular Component 生命周期钩子顺序
 date: 2018-06-23
-categories: Angular
+categories: angular
+tags: [angular]
 ---
 本文详细分析和说明了 Angular 生命周期钩子，并给出了使用建议。
 <!-- more -->
