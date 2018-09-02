@@ -2,7 +2,7 @@
 title: 分类
 type: "categories"
 categories:
-  - angular
-  - oauth
+  - Angular
+  - OAuth
 comments: false
 ---
