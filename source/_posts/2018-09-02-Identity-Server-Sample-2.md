@@ -1,12 +1,13 @@
 ---
-title: IdentityServer4 入门之二: 使用资源所有者密码授权保护 API
-date: 2018-09-02
-categories: oauth 
-tags: [oauth, IdentityServer4]
+title: IdentityServer4 入门之二: 使用资源所有者密码授权保护 API   
+date: 2018-09-02   
+categories: oauth   
+tags: [oauth, IdentityServer4]   
 ---
-**OAuth 2.0 资源所有者密码授权** 允许一个客户端发送用户名和密码到令牌服务并获得一个表示该用户的访问令牌。
+OAuth 2.0 资源所有者密码授权允许一个客户端发送用户名和密码到令牌服务并获得一个表示该用户的访问令牌。
 （OAuth 2.0） **规范** 建议仅对“受信任”的应用程序使用资源所有者密码授权。一般来说，当你想要验证一个用户并请求访问令牌的时候，使用交互式 OpenID Connect 流通常会更好。 
 <!-- more -->
+
 # IdentityServer4 入门之二: 使用资源所有者密码授权保护 API
 
 **OAuth 2.0 资源所有者密码授权** 允许一个客户端发送用户名和密码到令牌服务并获得一个表示该用户的访问令牌。
