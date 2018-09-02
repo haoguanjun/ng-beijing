@@ -84,3 +84,6 @@ Facebook 也支持通过 HTTP **Authorization** 头方式传递访问令牌，�
 
 ### 访问令牌何时过期？
 客户端凭据流程典型使用长寿命的访问令牌。授权服务器可能提示一个 **expires_in** 时间，但是，协议并不支持在响应中颁发刷新的令牌。相反，在当前令牌过期的时候，应用程序简单地请求新的访问令牌。
+
+### See also
+* [Client Credentials](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/)
