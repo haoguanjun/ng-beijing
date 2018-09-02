@@ -1,5 +1,5 @@
 ---
-title: IdentityServer4 #2: 使用资源所有者密码授权保护 API
+title: IdentityServer4 入门之二: 使用资源所有者密码授权保护 API
 date: 2018-09-02
 categories: oauth
 tags: [oauth, IdentityServer4]
