@@ -1,7 +1,8 @@
 ---
 title: IdentityServer4 入门之一     
 date: 2018-08-30
-categories: IdentityServer4
+categories: oauth
+tags: [oauth, IdentityServer4]
 ---
 IdentityServer4 快速入门，官网示例基于 .NET Core 2.0，这里使用 .NET Core 2.1 重新实现。
 <!-- more -->
