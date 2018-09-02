@@ -1,7 +1,7 @@
 ---
 title: IdentityServer4 入门之二: 使用资源所有者密码授权保护 API
 date: 2018-09-02
-categories: oauth
+categories: oauth 
 tags: [oauth, IdentityServer4]
 ---
 **OAuth 2.0 资源所有者密码授权** 允许一个客户端发送用户名和密码到令牌服务并获得一个表示该用户的访问令牌。
