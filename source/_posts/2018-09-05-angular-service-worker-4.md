@@ -20,7 +20,7 @@ Service workers 强化了传统的 Web 部署模型，赋予应用程序与本�
 
 在 Angular service worker 的语境中，“版本” 是表示特定 Angular 应用构建的资源集。每当一个新的应用构建被部署，service worker 将该构建看作一个新版本的应用程序。甚至在只有单个文件被更新的时候也是如此。在任何给定的时间，service worker 在它的缓存中可能拥有该应用程序的多个版本，它可能同时使用它们。更多信息，请参考 App tabs 一节。
 
-为了保持应用的完整性，Angular service worker 将所有文件一起看作一个版本。同一版本中的文件通常包括 HTML、JS 以及 CSS 文件。将文件分组本质上是为了完整性，因为 HTML、JS 和 CSS 经常引用其它并依赖特定内容。例如，`index.html` 文件可能拥有一个 <script> 标记，其引用了 `bundle.js` ，它可能调用了其中名为 `startApp()` 的函数。任何时候在 `index.html` 被使用的时候，相关的 `bundle.js` 必须一起被使用。例如，假设 `startApp()` 函数在两个文件中被重新命名为 `runApp()` ，在这种情况下，它就不会被旧的 `index.html` 所使用，对于新的块来说，它应该调用 `startApp()`。
+为了保持应用的完整性，Angular service worker 将所有文件一起看作一个版本。同一版本中的文件通常包括 HTML、JS 以及 CSS 文件。将文件分组本质上是为了完整性，因为 HTML、JS 和 CSS 经常引用其它并依赖特定内容。例如，`index.html` 文件可能拥有一个 `<script>` 标记，其引用了 `bundle.js` ，它可能调用了其中名为 `startApp()` 的函数。任何时候在 `index.html` 被使用的时候，相关的 `bundle.js` 必须一起被使用。例如，假设 `startApp()` 函数在两个文件中被重新命名为 `runApp()` ，在这种情况下，它就不会被旧的 `index.html` 所使用，对于新的块来说，它应该调用 `startApp()`。
 
 在延迟加载的情况下，文件完整性尤其重要。JS 的块可能引用了许多延迟加载块，延迟加载块的文件名对于应用的特定构建来说是唯一的。如果一个运行中的应用在版本 x 的时候试图延迟加载块，但是服务器的版本已经更新到了 x+1，延迟加载操作可能失败。
 
