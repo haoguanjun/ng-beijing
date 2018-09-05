@@ -1,5 +1,5 @@
 ---
-title: Angular Service Worker 4: 产品中的 Service Worker
+title: Angular Service Worker 4 产品中的 Service Worker
 date: 2018-09-05
 categories: angular
 tags: [angular, PWA]
