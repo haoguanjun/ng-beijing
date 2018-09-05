@@ -1,5 +1,5 @@
 ---
-title: Angular Service Worker #2 Service worker 入门 
+title: Angular Service Worker (2) Service worker 入门 
 date: 2018-09-03
 categories: angular
 tags: [angular, PWA]
@@ -8,7 +8,7 @@ Service workers 强化了传统的 Web 部署模型，赋予应用程序与本�
 从最简单的来说，service worker 是运行在 Web 浏览器中用来管理应用程序缓存的一段脚本。
 <!-- more -->
 
-## Angular Service Worker #2: Service worker 入门 
+## Angular Service Worker (2) Service worker 入门 
 
 该文档说明如何在你的 CLI 项目中启用 Angular service worker。它使用一个简单的应用向您展示 service worker 的操作，演示加载和基本的缓存。
 
