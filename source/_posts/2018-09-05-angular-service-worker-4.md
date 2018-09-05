@@ -1,5 +1,5 @@
 ---
-title: Angular Service Worker 4 产品中的 Service Worker
+title: Angular Service Worker - 4: 产品中的 Service Worker
 date: 2018-09-05
 categories: angular
 tags: [angular, PWA]
@@ -8,7 +8,7 @@ Service workers 强化了传统的 Web 部署模型，赋予应用程序与本�
 从最简单的来说，service worker 是运行在 Web 浏览器中用来管理应用程序缓存的一段脚本。
 <!-- more -->
 
-## Angular Service Worker #4: 产品中的 Service Worker
+## Angular Service Worker - 4: 产品中的 Service Worker
 
 本节是关于 Angular service  worker 的部署和产品支持。它说明了 Angular service worker 是如何配合大型产品环境，多种条件下的 service worker 的行为，以及可用的资源和故障安全。
 
