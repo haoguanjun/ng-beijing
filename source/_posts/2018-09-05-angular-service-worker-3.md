@@ -1,5 +1,5 @@
 ---
-title: Angular Service Worker #3 Service Worker 通讯
+title: Angular Service Worker (3) Service Worker 通讯
 date: 2018-09-03
 categories: angular
 tags: [angular, PWA]
