@@ -5,7 +5,7 @@ caterigies: angular
 tages: [angular]
 ---
 本文说明了如何在 Angular 中通过 API 访问服务器端的 Blob 数据。
-<!- more -->
+<!-- more -->
 
 ## 在 Angular 中访问 Blob 数据
 
