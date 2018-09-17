@@ -278,8 +278,10 @@ OAuth包含两个主要的部分，获取一个AccessToken，然后用Token来�
 OAuth2支持获取用户授权和发起API请求的分离。
 
 #### 资源
-
-Credit: Some content adapted from [hueniverse.com](https://link.jianshu.com/?t=http://hueniverse.com/).
-More information is available on [OAuth.net](https://link.jianshu.com/?t=http://oauth.net/)
+* [OAuth 2 Simplified](https://aaronparecki.com/oauth-2-simplified/)
+* Credit: Some content adapted from [hueniverse.com](http://hueniverse.com/).
+* More information is available on [OAuth.net](http://oauth.net/)
+* [Identity Server 4](http://docs.identityserver.io/en/release/)
 
 > 译注：对于服务器端应用特指纯后端的应用，这类应用不会暴露任何的代码给外部环境，它和OAuth服务器的通信是服务和服务器之间的，所以相对比较安全。基于浏览器的应用现在常见的比如使用AngularJS，React之类的浏览器端渲染技术在浏览器上渲染页面，并通过RESTfulAPI请求数据。以上介绍的所有授权类型都是三方合作的，但是基于“password”的授权类型实际上是自有App的授权方案，这也是现在主流移动App的登陆(身份验证)方案，然而这类App也都会提供使用“微信”、“微博”登陆的方案，而后者就是本文所述的OAuth。
+
