@@ -46,7 +46,7 @@ null == undefined; // => true
 1
 1 == '1'; // => true
 ```
-如果其中一个值是true，则将其转换为1再进行比较。如果其中一个值是false，则将其转换为0再进行比较：
+如果其中一个值是true，则将其转换为 1 再进行比较。如果其中一个值是 false，则将其转换为 0 再进行比较：
 
 ```JavaScript
 true == 0;   // => false
@@ -55,20 +55,8 @@ true == 1;   // => true
 false == 0;  // => true
 true == '1'; // => true
 false == '0';// => true
-1
-2
-3
-4
-5
-6
-true == 0;   // => false
-false == 1;  // => false
-true == 1;   // => true
-false == 0;  // => true
-true == '1'; // => true
-false == '0';// => true
 ```
-如果一个值是对象，另一个值是数字或字符串，将会先使用toString()和valueOf()将对象转换为原始值，然后再进行比较。
+如果一个值是对象，另一个值是数字或字符串，将会先使用 toString() 和 valueOf() 将对象转换为原始值，然后再进行比较。
 
 两个操作数在进行比较时则要遵循下列规则：
 
@@ -92,36 +80,12 @@ var f = "te" + "xt";
 a == b       // =>false
 c == d       // =>false
 e == f       // =>true
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-var a = [1,2,3];
-var b = [1,2,3];
- 
-var c = { x: 1, y: 2 };
-var d = { x: 1, y: 2 };
- 
-var e = "text";
-var f = "te" + "xt";
- 
-a == b       // =>false
-c == d       // =>false
-e == f       // =>true
 ```
-对于两个操作数var1==var2,下图能表达的很清楚：
-![](https://cdn1.chenky.com/wp-content/uploads/2016/11/javascript-equalit-1.png)
-图中绿色的方框表示返回的值为true，其它的表示返回的值为false。同样可以使用另一张图来表述：
-![](https://cdn1.chenky.com/wp-content/uploads/2016/11/javascript-equalit-3.png)
-图中橙色的方框表示返回的值为true，其它的表示返回的值为false。
+对于两个操作数 var1==var2, 下图能表达的很清楚：
+![](https://www.cnblogs.com/images/cnblogs_com/haogj/242334/o_javascript-equalit-1.png)
+图中绿色的方框表示返回的值为 `true`，其它的表示返回的值为 `false`。同样可以使用另一张图来表述：
+![](https://www.cnblogs.com/images/cnblogs_com/haogj/242334/o_javascript-equalit-3.png)
+图中橙色的方框表示返回的值为 `true`，其它的表示返回的值为 `false`。
 
 ### ===运算规则
 严格相等运算符===首先要计算其操作数的值，然后比较这两个值，比较过程没有任何类型转换。其运算规则遵循下面的规则：
@@ -129,8 +93,6 @@ e == f       // =>true
 如果两个值类型不相同，则它们不相等
 
 ```JavaScript
-true === '1'; // => false
-1
 true === '1'; // => false
 ```
 其中操作数true是布尔值，而’1’是字符串值。
@@ -141,28 +103,10 @@ true === '1'; // => false
 null === null; // => true
 undefined === undefined; // => true
 null === undefined; // =>false
-1
-2
-3
-null === null; // => true
-undefined === undefined; // => true
-null === undefined; // =>false
 ```
 如果两个值都是布尔值true或false，则它们相等：
 
 ```JavaScript
-true === true;   // =>true
-false === false; // =>true
-true === 1;      // =>false
-true === '1';    // =>false
-false === 0;     // =>false
-false === '0';   // =>false
-1
-2
-3
-4
-5
-6
 true === true;   // =>true
 false === false; // =>true
 true === 1;      // =>false
@@ -196,53 +140,13 @@ var c = a;
 
 var ab_eq = (a === b); // false (even though a and b are the same type)
 var ac_eq = (a === c); // true
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-var a = [1,2,3];
-var b = [1,2,3];
-var c = a;
- 
-var ab_eq = (a === b); // false (even though a and b are the same type)
-var ac_eq = (a === c); // true
- 
-var a = { x: 1, y: 2 };
-var b = { x: 1, y: 2 };
-var c = a;
- 
-var ab_eq = (a === b); // false (even though a and b are the same type)
-var ac_eq = (a === c); // true
- 
-var a = { };
-var b = { };
-var c = a;
- 
-var ab_eq = (a === b); // false (even though a and b are the same type)
-var ac_eq = (a === c); // true
 ```
 同样对于var1 === var2也可以用图来表达：
-![](https://cdn1.chenky.com/wp-content/uploads/2016/11/javascript-equalit-2.png)
+![](https://www.cnblogs.com/images/cnblogs_com/haogj/242334/o_javascript-equalit-2.png)
 上图中绿色的方框表示返回的值为true，白色的方框表示返回的值为false。除了上图之外，下面这张图也表达的是同样的意思：
 
-![](https://cdn1.chenky.com/wp-content/uploads/2016/11/javascript-equalit-4.png)
-上图中橙色的方框表示返回的值为true，白色的方框表示返回的值为false。
+![](https://www.cnblogs.com/images/cnblogs_com/haogj/242334/o_javascript-equalit-4.png)
+上图中橙色的方框表示返回的值为 `true`，白色的方框表示返回的值为 `false`。
 
 在JavaScript中比较运算符不仅仅是==和===。还有其它的比较运算符，比如<=、>=。综合起来，也可以使用一张图表述：
 
@@ -252,7 +156,7 @@ var ac_eq = (a === c); // true
 * 蓝色:只有>=
 * 绿色：只有<=
 
-![](https://cdn1.chenky.com/wp-content/uploads/2016/11/javascript-equalit-5.png)
+![](https://www.cnblogs.com/images/cnblogs_com/haogj/242334/o_javascript-equalit-5.png)
 有关于JavaScript中==和===更多的讨论，可以点击[这里](http://stackoverflow.com/questions/359494/which-equals-operator-vs-should-be-used-in-javascript-comparisons)和[这里。](https://www.zhihu.com/question/31442029)
 
 ### != 和 !==
