@@ -1,8 +1,7 @@
 ---
 title: Web 性能：当毫秒级分辨率仍不够精确
-date: 2018-10-8
+date: 2018-10-08
 categories: performance
-tags: [performance]
 ---
 有些时候，使用毫秒级分辨率来度量时间仍不够精确。W3C Web 性能工作小组与行业和社区的领导者开展了通力合作，通过标准化高分辨率时间规范而解决了这一问题。
 <!-- more -->
