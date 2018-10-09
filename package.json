@@ -16,5 +16,8 @@
     "hexo-renderer-stylus": "^0.3.1",
     "hexo-description": "^0.1.0",
     "hexo-server": "^0.2.0"
+  },
+  "devDependencies": {
+    "archiver": "^3.0.0"
   }
 }
