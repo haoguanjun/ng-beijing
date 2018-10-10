@@ -80,5 +80,5 @@ theme: next
 
 deploy:
   type: git
-  repository: https://{AZURE_WA_USERNAME}:${AZURE_WA_PASSWORD}@ngbeijing.scm.azurewebsites.net:443/ngbeijing.git
+  repository: https://${AZURE_WA_USERNAME}:${AZURE_WA_PASSWORD}@ngbeijing.scm.azurewebsites.net:443/ngbeijing.git
   branch: master
