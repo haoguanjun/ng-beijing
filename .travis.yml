@@ -10,6 +10,6 @@ script:
 
 
 after_success:
-  - "find wwwroot -type f -exec curl -u ${AZURE_WA_USERNAME}:${AZURE_WA_PASSWORD} --ftp-create-dirs -T {} ${AZURE_WA_SITE}/site/{} \\;"
+  - "find wwwroot -type f -exec curl -u ${AZURE_WA_USERNAME}:${AZURE_WA_PASSWORD} --ftp-pasv --ftp-create-dirs -T {} ${AZURE_WA_SITE}/site/{} \\;"
   
  
