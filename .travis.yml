@@ -10,5 +10,5 @@ script:
 
 after_success:
   - git remote add azure https://${AZURE_WA_USERNAME}:${AZURE_WA_PASSWORD}@ngbeijing.scm.azurewebsites.net:443/ngbeijing.git/
-  - git pull
+  - git pull azure master
   - git push azure master
