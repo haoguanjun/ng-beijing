@@ -10,6 +10,7 @@ script:
 
 
 after_success:
-  - "find wwwroot -type f -exec curl -u ${AZURE_WA_USERNAME}:${AZURE_WA_PASSWORD} --ftp-pasv --ftp-create-dirs -T {} ${AZURE_WA_SITE}/site/{} \\;"
+  - git remote add azure https://{AZURE_WA_USERNAME}:${AZURE_WA_PASSWORD}@ngbeijing.scm.azurewebsites.net:443/ngbeijing.git
+  - git push azure master
   
  
