@@ -6,7 +6,5 @@ install:
   - npm install
 
 script:
+# https://hexo.io/docs/generating
   - hexo deploy --generate
-
-deploy:
-  provider: azure_web_apps
