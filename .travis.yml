@@ -7,4 +7,4 @@ install:
 
 script:
   - hexo g
-  - git push --force --quiet "https://ngbeijing.scm.azurewebsites.net:443/ngbeijing.git" master:master
+  - git push --force --quiet "https://${AZURE_WA_USERNAME}:${AZURE_WA_PASSWORD}@${AZURE_WA_SITE}/ngbeijing.git" master:master
