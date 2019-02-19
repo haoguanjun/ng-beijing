@@ -77,8 +77,3 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: next
-
-deploy:
-  type: git
-  repository: https://haogjxx:Haogj*ngbeijing@ngbeijing.scm.azurewebsites.net:443/ngbeijing.git
-  branch: master
