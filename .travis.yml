@@ -9,6 +9,7 @@ script:
   - hexo g
   
 after_script:
+  - cd
   - cd ./public
   - git init
   - git add .
