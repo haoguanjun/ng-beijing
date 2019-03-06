@@ -1,5 +1,5 @@
 ---
-title: &#91;翻译] 如何不需重新构建，使用环境变量来配置 Angular 应用  
+title: 如何不需重新构建，使用环境变量来配置 Angular 应用  
 date: 2019-03-06
 categories: angular
 ---
