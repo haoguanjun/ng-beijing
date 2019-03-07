@@ -3,13 +3,8 @@ title: 如何不需重新构建，使用环境变量来配置 Angular 应用
 date: 2019-03-06
 categories: angular
 ---
-如果我们可以基于不同的环境构建不同的版本，内置于 Angular CLI 的 [application environments](https://github.com/angular/angular-cli/wiki/stories-application-environments) 就可以理想地存储配置详情。
-
+如果我们可以基于不同的环境构建不同的版本，内置于 Angular CLI 的 application environments 就可以理想地存储配置详情。
 但是，如果你的应用程序需要在不同的环境下进行不同的配置，而不能重新构建，我们就需要另一个机制。
-
-通过将配置详情分离到 `env.js` 文件中，我们的应用现在可以：
-* 使用不同的配置部署到不同的环境，而不需要重新构建 Angular 应用
-* 将代码分享给外部伙伴，而不会泄露任何机密配置信息
 <!-- more -->
 
 # [翻译] 如何不需重新构建，使用环境变量来配置 Angular 应用
@@ -20,7 +15,7 @@ categories: angular
 
 2016 年 2 月，我发布过如果使用环境变量配置 AngularJS 1.x，我们可以做到：
 
-* 在不修改 AngularJS 应用程序代码、不重新构建的情况下，将 AngularJS 1.x 应用使用不同的配置部署到不同的环境中（阶段部署，产品等等）。
+* 在不修改 AngularJS 应用程序代码、不重新构建的情况下，将 AngularJS 1.x 应用使用不同的配置部署到不同的环境中（预发布，产品等等）。
 * 在不暴露任何敏感配置细节的情况下，在任何时刻，向外部伙伴分享 AngularJS 1.x 应用代码
 
 许多开发者和商业机构已经使用该文中的框架在 AngularJS 1.x 获得成功。
@@ -179,7 +174,7 @@ export class AppComponent {
 
 ### 限制2：应用程序的配置是应用程序代码的一部分
 
-应用程序的配置对于各种不同的部署情况非常不同（阶段，产品，客户 A，客户 B 等等）
+应用程序的配置对于各种不同的部署情况非常不同（预发布，产品，客户 A，客户 B 等等）
 
 将应用程序配置部分作为应用程序代码的一部分存储在仓库中会引入安全风险。想象一下你雇佣了一个外部的顾问访问你的私有应用代码。该顾问现在将可以访问存储在你的配置中的所有私有配置数据，因为你的环境配置也存在在你的代码仓库中。
 
@@ -460,7 +455,7 @@ export class HomeComponent {
 
 ![](https://user-images.githubusercontent.com/1859381/44098643-b82bd342-9fae-11e8-8810-8c80b814eb3a.gif)
 
-你的部署团队可以打开 `env.js` 来查看环境变量是否可用，并基于特定的部署更新其中的值，比如阶段部署、产品、客户A、客户 B 等等。
+你的部署团队可以打开 `env.js` 来查看环境变量是否可用，并基于特定的部署更新其中的值，比如预发布、产品、客户A、客户 B 等等。
 
 ```javascript
 (function (window) {
@@ -490,9 +485,6 @@ export class HomeComponent {
 这就是我们需要的。
 
 您可以在 [这里](https://github.com/jvandemo/angular-environment-variables-demo)找到一个示例。
-
-
-
 
 
 ## see also
