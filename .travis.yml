@@ -5,13 +5,6 @@ node_js: stable
 install:
   - npm install
 
-script:
-  - hexo g
-  
-after_script:
-  - cd ./wwwroot
-  - git init
-  - git add .
-  - git commit -m "Update docs"
-  - git remote add azure https://${AZURE_WA_USERNAME}:${AZURE_WA_PASSWORD}@${AZURE_WA_SITE}/ngbeijing.git
-  - git push azure master --force
+deploy:
+  provider: azure_web_apps
+  verbose: true
