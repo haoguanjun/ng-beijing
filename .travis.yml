@@ -5,6 +5,13 @@ node_js: stable
 install:
   - npm install
 
-deploy:
-  provider: azure_web_apps
-  verbose: true
+script:
+  - hexo g
+
+after_script:
+  - cd ./wwwroot
+  - git init
+  - git add .
+  - git commit -m "Update docs"
+  - git remote add azure https://${AZURE_WA_USERNAME}:${AZURE_WA_PASSWORD}@${AZURE_WA_SITE}
+  - git push azure master --force
