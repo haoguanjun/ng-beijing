@@ -13,4 +13,5 @@ after_script:
   - git init
   - git add .
   - git commit -m "Update docs"
-  - git push --force --quiet "https://${AZURE_WA_USERNAME}:${AZURE_WA_PASSWORD}@${AZURE_WA_SITE}/ngbeijing.git" master:master
+  - git remote add azure https://${AZURE_WA_USERNAME}:${AZURE_WA_PASSWORD}@${AZURE_WA_SITE}/ngbeijing.git
+  - git push azure master --force
