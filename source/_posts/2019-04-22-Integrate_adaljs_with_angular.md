@@ -4,7 +4,7 @@ date: 2019-04-22
 categories: angular
 ---
 该文介绍了如何在 Angular 应用中集成 Microsoft Azure Active Directory，使用 OpenID Connect 隐式流方案实现验证和授权。
-该示例使用了微软提供的 ADAL.js 脚本客户端。
+该示例使用了微软提供的 ADAL.js 脚本客户端。 
 <!-- more -->
 # 在 Angular 中使用 ADAL.js
 
