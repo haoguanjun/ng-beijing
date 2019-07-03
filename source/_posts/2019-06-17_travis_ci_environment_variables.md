@@ -3,6 +3,8 @@ title: Travis CI 环境变量中转义符
 date: 2019-06-17
 categories: travis
 ---
+在 Travis CI 中，如果你的密钥值中包含有转义字符，例如 &, 需要通过在其前面加上 \ 来进行转义。$ 也是需要转义的。
+<!-- more -->
 在 Travis CI 中，使用环境变量可以保护敏感信息，比如密码。在设置环境变量的输入框下面，有一行提示：
 > If your secret variable has especial characters like &, escape it by adding \ in front of it. For example ma&w!doc would be typed as ma\&w\!doc.
 
