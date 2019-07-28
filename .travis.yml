@@ -9,7 +9,7 @@ script:
   - hexo g
 
 after_script:
-  - cd ./wwwroot
+  - cd ./output
   - git init
   - git add .
   - git commit -m "Update docs"
