@@ -8,7 +8,6 @@ namespace dotnetcore
         public static void Main(string[] args)
         {
             CreateWebHostBuilder(args)
-                .UseUrls("http://localhost:8080")
                 .Build()
                 .Run();
         }
