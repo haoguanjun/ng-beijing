@@ -8,9 +8,9 @@ categories: angular
 
 ### 使用方式
 
-<ngb-tabset> 作为容器元素，其中的每个页签以一个 <ngb-tab> 元素定义，在 <ngb-tabset> 中包含若干个 <ngb-tab> 子元素。
+`<ngb-tabset>` 作为容器元素，其中的每个页签以一个 `<ngb-tab>` 元素定义，在 `<ngb-tabset>` 中包含若干个 `<ngb-tab>` 子元素。
 
-在 <ngb-tab> 元素中，使用 <ng-template> 模板来定义内容，内容分为两种：标题和内容。
+在 `<ngb-tab>` 元素中，使用 `<ng-template>` 模板来定义内容，内容分为两种：标题和内容。
 
 标题使用 `[ngbTabTitle]` 指令来声明，或者在 `<ngb-tab>` 元素上使用 `title` 属性声明。
 
@@ -45,9 +45,9 @@ categories: angular
 </ngb-tabset>
 ```
 
-可以看到，外层元素是 <ngb-tabset>。
+可以看到，外层元素是 `<ngb-tabset>`。
 
-每个 tab 使用元素 <ngb-tab> 定义，tab 的内容使用 <ng-template> 模板定义， tab 中的内容分为两个部分：标题和内容。
+每个 tab 使用元素 `<ngb-tab>` 定义，tab 的内容使用 `<ng-template>` 模板定义， tab 中的内容分为两个部分：标题和内容。
 
 下面是使用模板的标题
 
