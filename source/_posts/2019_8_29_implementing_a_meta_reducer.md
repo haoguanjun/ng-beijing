@@ -118,6 +118,147 @@ export function reset( reducer ) {
 ```javascript
 StoreModule.provideStore( compose( reset, logger, combineReducers )( reducers )),
 ```
+### ngRx 中的两个实例应用
+
+1. [immutability_reducer.ts](https://github.com/ngrx/platform/blob/master/modules/store/src/meta-reducers/immutability_reducer.ts), 用来将 state 和 actio 进行不变化处理的 reducer.
+```javascript
+import { ActionReducer } from '../models';
+import { isFunction, hasOwnProperty, isObjectLike } from './utils';
+
+export function immutabilityCheckMetaReducer(
+  reducer: ActionReducer<any, any>,
+  checks: { action: boolean; state: boolean }
+): ActionReducer<any, any> {
+  return function(state, action) {
+    const act = checks.action ? freeze(action) : action;
+
+    const nextState = reducer(state, act);
+
+    return checks.state ? freeze(nextState) : nextState;
+  };
+}
+
+function freeze(target: any) {
+  Object.freeze(target);
+
+  const targetIsFunction = isFunction(target);
+
+  Object.getOwnPropertyNames(target).forEach(prop => {
+    if (
+      hasOwnProperty(target, prop) &&
+      (targetIsFunction
+        ? prop !== 'caller' && prop !== 'callee' && prop !== 'arguments'
+        : true)
+    ) {
+      const propValue = target[prop];
+
+      if (
+        (isObjectLike(propValue) || isFunction(propValue)) &&
+        !Object.isFrozen(propValue)
+      ) {
+        freeze(propValue);
+      }
+    }
+  });
+
+  return target;
+}
+```
+
+2. [serialization_reducer.ts](https://github.com/ngrx/platform/blob/master/modules/store/src/meta-reducers/serialization_reducer.ts) 开发时，对 action 和 state 进行可序列化检查的 reducer。
+
+```javascript
+import { ActionReducer } from '../models';
+import {
+  isPlainObject,
+  isUndefined,
+  isNull,
+  isNumber,
+  isBoolean,
+  isString,
+  isArray,
+} from './utils';
+
+export function serializationCheckMetaReducer(
+  reducer: ActionReducer<any, any>,
+  checks: { action: boolean; state: boolean }
+): ActionReducer<any, any> {
+  return function(state, action) {
+    if (checks.action) {
+      const unserializableAction = getUnserializable(action);
+      throwIfUnserializable(unserializableAction, 'action');
+    }
+
+    const nextState = reducer(state, action);
+
+    if (checks.state) {
+      const unserializableState = getUnserializable(nextState);
+      throwIfUnserializable(unserializableState, 'state');
+    }
+
+    return nextState;
+  };
+}
+
+function getUnserializable(
+  target?: any,
+  path: string[] = []
+): false | { path: string[]; value: any } {
+  // Guard against undefined and null, e.g. a reducer that returns undefined
+  if ((isUndefined(target) || isNull(target)) && path.length === 0) {
+    return {
+      path: ['root'],
+      value: target,
+    };
+  }
+
+  const keys = Object.keys(target);
+  return keys.reduce<false | { path: string[]; value: any }>((result, key) => {
+    if (result) {
+      return result;
+    }
+
+    const value = (target as any)[key];
+
+    if (
+      isUndefined(value) ||
+      isNull(value) ||
+      isNumber(value) ||
+      isBoolean(value) ||
+      isString(value) ||
+      isArray(value)
+    ) {
+      return false;
+    }
+
+    if (isPlainObject(value)) {
+      return getUnserializable(value, [...path, key]);
+    }
+
+    return {
+      path: [...path, key],
+      value,
+    };
+  }, false);
+}
+
+function throwIfUnserializable(
+  unserializable: false | { path: string[]; value: any },
+  context: 'state' | 'action'
+) {
+  if (unserializable === false) {
+    return;
+  }
+
+  const unserializablePath = unserializable.path.join('.');
+  const error: any = new Error(
+    `Detected unserializable ${context} at "${unserializablePath}"`
+  );
+  error.value = unserializable.value;
+  error.unserializablePath = unserializablePath;
+  throw error;
+}
+```
 
 
 
