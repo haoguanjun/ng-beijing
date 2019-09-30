@@ -1,7 +1,9 @@
 ---
 title: 构建基于 Microsoft Graph 的 Angular 单页应用     
 date: 2019-09-30
-categories: angular graph
+categories: 
+    - angular
+    - graph
 ---
 该教程讲解如何构建使用 Microsoft Graph 的 Angular 单页应用，以获取用户的日程信息。
 <!-- more -->
