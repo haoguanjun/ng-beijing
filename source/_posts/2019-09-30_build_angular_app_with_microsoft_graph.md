@@ -755,6 +755,219 @@ async signIn(): Promise<void> {
 但是，该令牌是短时有效的。该令牌将在颁发之后的 1 小时后过期。因为应用使用了 MSAL 库。你不必自己实现任何的令牌存储或者刷新功能。`MsalService` 会在浏览器存储中缓存令牌。`acquireTokenSilent` 方法首先检查缓存的令牌，如果没有过期，就返回它。如果过期了，它会发出一个静默请求来申请新的令牌。
 
 
+### 从 Outlook 获取日历事件
+
+首先，我们定义将用于应用程序显示的 `Event` 类。在 `./src/app` 文件夹中创建名为 `event.ts` 的文件并填充如下代码：
+
+```typescript
+// For a full list of fields, see
+// https://docs.microsoft.com/graph/api/resources/event?view=graph-rest-1.0
+export class Event {
+  subject: string;
+  organizer: Recipient;
+  start: DateTimeTimeZone;
+  end: DateTimeTimeZone;
+}
+
+// https://docs.microsoft.com/graph/api/resources/recipient?view=graph-rest-1.0
+export class Recipient {
+  emailAddress: EmailAddress;
+}
+
+// https://docs.microsoft.com/graph/api/resources/emailaddress?view=graph-rest-1.0
+export class EmailAddress {
+  name: string;
+  address: string;
+}
+
+// https://docs.microsoft.com/graph/api/resources/datetimetimezone?view=graph-rest-1.0
+export class DateTimeTimeZone {
+  dateTime: string;
+  timeZone: string;
+}
+```
+
+然后，添加新的服务来服务所有对于 Graph 的调用。就像前面创建的验证服务异常，创建服务可以使你将其注入到任何需要访问 Microsoft Graph 的组件中。在 CLI 中执行如下命令。
+
+```bash
+ng generate service graph
+```
+
+在命令完成之后，打开 `./src/app/graph.service.ts` 文件，并使用如下内容替换原有内容。
+
+```typescript
+import { Injectable } from '@angular/core';
+import { Client } from '@microsoft/microsoft-graph-client';
+
+import { AuthService } from './auth.service';
+import { Event } from './event';
+import { AlertsService } from './alerts.service';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class GraphService {
+
+  private graphClient: Client;
+  constructor(
+    private authService: AuthService,
+    private alertsService: AlertsService) {
+
+    // Initialize the Graph client
+    this.graphClient = Client.init({
+      authProvider: async (done) => {
+        // Get the token from the auth service
+        let token = await this.authService.getAccessToken()
+          .catch((reason) => {
+            done(reason, null);
+          });
+
+        if (token)
+        {
+          done(null, token);
+        } else {
+          done("Could not get an access token", null);
+        }
+      }
+    });
+  }
+
+  async getEvents(): Promise<Event[]> {
+    try {
+      let result =  await this.graphClient
+        .api('/me/events')
+        .select('subject,organizer,start,end')
+        .orderby('createdDateTime DESC')
+        .get();
+
+      return result.value;
+    } catch (error) {
+      this.alertsService.add('Could not get events', JSON.stringify(error, null, 2));
+    }
+  }
+}
+```
+
+代码完成了如下内容：
+
+* 在服务的构造函数中，初始化了 Graph 客户端
+* 使用 Graph 客户端实现了 `getEvents()` 函数，使用了如下方式：
+  * 调用的 URL 为 `/me/events`
+  * `select` 方法限制了每个事件返回的字段，仅仅为显示所需的字段。
+  * `orderby` 方法基于事件创建的日期和时间进行了排序，最新的在前面。
+
+现在，创建 Angular 组件来调用显示结果的方法，在 CLI 中执行如下命令。
+
+```bash
+ng generate component calendar
+```
+
+在命令完成之后，在 `./src/app/app-routing.module.ts` 的 `routes` 数组中增加组件。
+
+```typescript
+import { CalendarComponent } from './calendar/calendar.component';
+
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'calendar', component: CalendarComponent }
+];
+```
+
+打开 `./src/app/calendar/calendar.component.ts` 文件，使用如下内容替换原有内容：
+
+```typescript
+import { Component, OnInit } from '@angular/core';
+import * as moment from 'moment-timezone';
+
+import { GraphService } from '../graph.service';
+import { Event, DateTimeTimeZone } from '../event';
+import { AlertsService } from '../alerts.service';
+
+@Component({
+  selector: 'app-calendar',
+  templateUrl: './calendar.component.html',
+  styleUrls: ['./calendar.component.css']
+})
+export class CalendarComponent implements OnInit {
+
+  private events: Event[];
+
+  constructor(
+    private graphService: GraphService,
+    private alertsService: AlertsService) { }
+
+  ngOnInit() {
+    this.graphService.getEvents()
+      .then((events) => {
+        this.events = events;
+        // Temporary to display raw results
+        this.alertsService.add('Events from Graph', JSON.stringify(events, null, 2));
+      });
+  }
+}
+```
+
+现在，仅仅以 JSON  格式在页面渲染事件列表。保存所有的修改，然后重启应用。登录并点击导航条上的 `Calendar` 链接。如果工作正常的话，你将会看到用户日程的 JSON 格式输出。
+
+### 显示结果
+
+现在更新 `CalendarComponent` 组件来以用户友好的方式显示。首先，删除临时代码，在 `ngOnInit` 中添加一个提醒。更新的函数应当如下所示：
+
+```typescript
+ngOnInit() {
+  this.graphService.getEvents()
+    .then((events) => {
+      this.events = events;
+    });
+}
+```
+
+现在，增加一个格式化 `DateTimeZone` 对象为 ISO 字符串的函数到 `CalendarComponent` 类中。
+
+```typescript
+formatDateTimeTimeZone(dateTime: DateTimeTimeZone): string {
+  try {
+    return moment.tz(dateTime.dateTime, dateTime.timeZone).format();
+  }
+  catch(error) {
+    this.alertsService.add('DateTimeTimeZone conversion error', JSON.stringify(error));
+  }
+}
+```
+
+最后，打开 `./src/app/calendar/calendar.component.html` 文件，并替换为如下内容。
+
+```html
+<h1>Calendar</h1>
+<table class="table">
+  <thead>
+    <th scope="col">Organizer</th>
+    <th scope="col">Subject</th>
+    <th scope="col">Start</th>
+    <th scope="col">End</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let event of events">
+      <td>{{event.organizer.emailAddress.name}}</td>
+      <td>{{event.subject}}</td>
+      <td>{{formatDateTimeTimeZone(event.start) | date:'short' }}</td>
+      <td>{{formatDateTimeTimeZone(event.end) | date: 'short' }}</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+这里遍历了事件集合，将每一个事件转换为表中的一行。保存更新并重启应用，点击 `Calendar` 链接，应用现在应当渲染一个事件的表格。
+
+![](https://docs.microsoft.com/en-us/graph/tutorials/angular/tutorial/images/add-msgraph-01.png)
+
+## 祝贺
+
+您已经完成了 Angular Microsoft Graph 教程。现在你已经有一个调用 Microsoft Graph 的可以工作的应用了。你可以继续体验并添加新的特性。请访问 [Overview of Microsoft Graph](https://docs.microsoft.com/en-us/graph/overview)  来查看你可以使用 Microsoft Graph 访问的所有数据。
+
+### 反馈
+
+请到  [GitHub repository](https://github.com/microsoftgraph/msgraph-training-angularspa) 提供关于本教程的任何反馈。
 
 ## See also
 
