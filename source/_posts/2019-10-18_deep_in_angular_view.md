@@ -5,12 +5,6 @@ categories: angular
 ---
 每当我阅读关于在Angular中使用DOM时，总会看到其中提到的一个或几个类：`ElementRef`,`TemplateRef`,`ViewContainerRef`以及一些其他的，不幸的是，尽管其中的一些被包含在Angular文档或相关文章中，我还没有找到整体思维模式的描述和这些如何一起工作的例子。本文旨在描述这样的模型。
 
-如果你有`angular.js`的开发经验，你会觉得操作DOM是件非常容易的事情，Angular 注入Element 到 link 函数中，你就可以查询组件模板中的任何节点，添加、删除及修改样式等操作。然而，这种方法有一个主要的缺点 - 它紧紧地绑定到一个浏览器平台上。
-
-新的Angular版本运行在不同的平台上———浏览器，移动平台或者在一个WEB worker 中。因此，站在平台特定的API和框架接口之间需要抽象层次。在Angular上，这些抽象来自以下参考类型的形式:
-`ElementRef`,`TemplateRef`,`ViewContainerRef`,`ComponentRef`,`ViewContainerRef`,在本文中，我们将详细介绍每种引用类型，并展示如何使用它们来操作DOM。
-
-http://blog.giscafer.com/2017/10/21/exploring-angular-dom-abstractions/
 <!-- more -->
 
 每当我阅读关于在Angular中使用DOM时，总会看到其中提到的一个或几个类：`ElementRef`,`TemplateRef`,`ViewContainerRef`以及一些其他的，不幸的是，尽管其中的一些被包含在Angular文档或相关文章中，我还没有找到整体思维模式的描述和这些如何一起工作的例子。本文旨在描述这样的模型。
@@ -307,3 +301,6 @@ export class SampleComponent {}
 ## 总结
 
 现在，所有这些信息似乎都很容易消化，但实际上它是相当连贯的，并在通过视图操作DOM的过程中形成了一个清晰的理想模型。您可以通过使用 ViewChild 查询和模板变量引用来获得 Angular DOM 抽象的引用。围绕DOM元素的最简单的包装是 ElementRef 。对于模板，您有 TemplateRef，它允许您创建一个嵌入式视图。 可以通过使用 ComponentFactoryResolver创建的 componentRef 访问宿主视图。视图可以使用 ViewContainerRef 进行操作。有两种指令使手动过程变为自动化：ngTemplateOutlet ——操作嵌入视图 和 ngComponentOutlet—— 创建宿主视图（动态组件）。
+
+## 原文地址
+* http://blog.giscafer.com/2017/10/21/exploring-angular-dom-abstractions/
