@@ -1,7 +1,9 @@
 ---
 title: 静默刷新 - 当使用简化模式时刷新访问令牌     
 date: 2020-01-03
-categories: oidc-client.js
+categories: 
+    - oidc-client.js
+    - angular
 ---
 通过静默刷新，可以在不使用刷新令牌的情况下，支持简化模式的客户端刷新访问令牌。
 <!-- more -->
