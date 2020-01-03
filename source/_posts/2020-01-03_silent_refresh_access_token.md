@@ -137,3 +137,4 @@ this.manager. events.addSilentRenewError(function(){
 
 * [Silent Refresh - Refreshing Access Tokens when using the Implicit Flow](https://www.scottbrady91.com/OpenID-Connect/Silent-Refresh-Refreshing-Access-Tokens-when-using-the-Implicit-Flow)
 * [Getting Started with OAuth 2.0 Pluralsight Course](https://www.pluralsight.com/courses/oauth-2-getting-started)
+* [oidc-client.js](https://github.com/IdentityModel/oidc-client-js)
