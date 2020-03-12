@@ -56,7 +56,27 @@ removeUserUnloaded(cb) {
 }
 ```
 
+不过，需要注意的是，在 UserManager 中，getUser() 方法中，并不会触发 userloaded 事件。
 
+```javascript
+    getUser() {
+        return this._loadUser().then(user => {
+            if (user) {
+                Log.info("UserManager.getUser: user loaded");
+
+                this._events.load(user, false);
+
+                return user;
+            }
+            else {
+                Log.info("UserManager.getUser: user not found in storage");
+                return null;
+            }
+        });
+    }
+```
+
+https://github.com/IdentityModel/oidc-client-js/blob/dev/src/UserManager.js
 
 #### 其他事件
 
