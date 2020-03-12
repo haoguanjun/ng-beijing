@@ -32,14 +32,13 @@ CheckSessionIFrame 创建一个内嵌的 iframe 来加载检查 session 的脚�
   "backchannel_logout_supported":true,
   "backchannel_logout_session_supported":true,
   "scopes_supported":[
-    "openid","profile","email","apxapi","IdentityServerAdministrator","offline_access"],
+    "openid","profile","email","IdentityServerAdministrator","offline_access"],
   "claims_supported":[
     "sub", "updated_at", "locale", "zoneinfo", "birthdate", "gender", "website", "email", 
     "picture", "preferred_username", "nickname", "middle_name", "given_name", "family_name", 
     "name","profile","email_verified"],
   "grant_types_supported":[
-    "authorization_code", "client_credentials", "refresh_token", "implicit", "password", 
-    "urn:ietf:params:oauth:grant-type:device_code","WindowsAuth"],
+    "authorization_code", "client_credentials", "refresh_token", "implicit", "password" ],
   "response_types_supported":[
     "code", "token", "id_token", "id_token token", "code id_token", "code token",
     "code id_token token"],
@@ -70,7 +69,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Polic
 
 ```http
 GET /connect/checksession HTTP/1.1
-Host: cosapxdev14.gencos.com
+Host: xxxxxx
 Connection: keep-alive
 Pragma: no-cache
 Cache-Control: no-cache
