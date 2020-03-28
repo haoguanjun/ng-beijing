@@ -41,7 +41,7 @@ ng serve --baseHref=news
 例如，对于我们这种情况来说，可以使用如下命令。这样所有资源的访问都将位于 `/news` 之下来。
 
 ```base
-ng serve --baseHref=news --deploy-url=news
+ng serve --baseHref=news --deploy-url=news/
 ```
 
 3. servePath
