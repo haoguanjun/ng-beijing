@@ -1,6 +1,6 @@
 ---
 title: baseHref, deploy-url  与 servePath    
-date: 2018-08-27
+date: 2020-3-21
 categories: angular
 ---
 Angular CLI VS提供了 3 个关于发布有关的路径，它们有什么用，在什么场景下面使用呢？
