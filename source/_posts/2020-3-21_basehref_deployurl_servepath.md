@@ -51,7 +51,7 @@ ng serve --baseHref=news --deploy-url=news/
 所以，我们可以直接使用下面的命令，在开发环境下，将应用和资源发布到 `/news` 中。
 
 ```bash
-ng serve --servePath=news
+ng serve --servePath=/news
 ```
 
 
