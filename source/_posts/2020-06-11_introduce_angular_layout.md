@@ -52,7 +52,6 @@ Angular Layout 提供了一种优雅的方式来使用 Flexbox、CSS Grid 和媒
 
 ![](https://cloud.githubusercontent.com/assets/210413/20034148/49a4fb62-a382-11e6-9822-42b90dec69be.jpg)
 
-![image-20200611093030176](/Users/whao/Library/Application Support/typora-user-images/image-20200611093030176.png)
 
 Angular Layout 是纯 TypeScript 引擎，与纯 CSS 实现发布的其它 Flexbox 引擎，和使用 JS + CSS 实现的 AngularJS Material Layout 不同。
 
@@ -138,7 +137,7 @@ fxLayoutAlign="center end"
 
 设置 fxLayout 容器中当前的 HTML 元素与最后元素的偏移量。如果是第一个元素，那么设置父元素边框与开始元素之间的距离。可以接受 `%,px, vh 或者 vw`
 
-##### 4.2.3 fxFill hove fxFlexFill
+##### 4.2.3 fxFill 或者 fxFlexFill
 
 该指令将子元素填满父元素的宽和高。
 
