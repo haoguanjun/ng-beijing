@@ -11,7 +11,7 @@ script:
 after_script:
   - cd ./output
   - git init
-  - git add .
+  - git add --all
   - git commit -m "Update docs"
   - git remote add azure https://${AZURE_WA_USERNAME}:${AZURE_WA_PASSWORD}@${AZURE_WA_SITE}
   - git push azure master --force
