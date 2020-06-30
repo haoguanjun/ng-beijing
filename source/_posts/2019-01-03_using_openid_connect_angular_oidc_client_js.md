@@ -38,7 +38,7 @@ ng new angular4-oidcclientjs-example –-routing true --skip-tests
 ng serve
 ```
 
-现在，如果你在浏览器中访问我们的站点，默认的地址是 http://localhost:4200，我们应该已经可以看到一个欢迎页面了。
+现在，如果你在浏览器中访问我们的站点，默认的地址是 http://localhost:4200 ，我们应该已经可以看到一个欢迎页面了。
 
 ## 受保护的组件和路由守卫
 
