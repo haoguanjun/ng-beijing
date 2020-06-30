@@ -40,4 +40,4 @@ jobs:
     - name: 'npm install, build, and test'
       run: |
         npm install
-        hexo g
+        npm run build
