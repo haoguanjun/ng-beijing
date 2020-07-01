@@ -118,19 +118,19 @@ public_dir: output/wwwroot
 
 [azure/webapps-deploy](https://github.com/Azure/webapps-deploy) 是 Azure 官方提供的部署到 Azure 的 Actions。它使用 Azure 提供的 publish profile 文件。在 Azure 中站点的首页中上方，即可找到下载这个 publish profile 的链接，点击之后，可以得到一个 扩展名为 .PublishSettings 的 xml 配置文件。
 
-![image-20200701203844029](https://raw.githubusercontent.com/haoguanjun/images/master/img/image-20200701203844029.png)
+
 
 使用任何文本编辑软件打开之后，将其中的文本复制出来。不过该文件中包含了站点的账号等等敏感信息。我们需要使用 Github 仓库的 Settings 功能保存并保护起来。
 
 在 GitHub 的 Settings 页面中，可以找到密钥 Secrets 管理。如下所示：
 
-![image-20200701204748321](/Users/whao/Library/Application Support/typora-user-images/image-20200701204748321.png)
+
 
 点击  New secret 添加新密钥，Name 设置为 AZURE_WEBAPP_PUBLISH_PROFILE，可以设置其它名字，不过微软的插件默认使用这个名字，Value 中将复制的 publish settings 串粘贴进去即可。
 
 完成之后如下图所示。
 
-![image-20200701205110664](/Users/whao/Library/Application Support/typora-user-images/image-20200701205110664.png)
+
 
 准备好密钥之后就简单了，定义如下的 Step。需要注意的是 secrets 是 GitHub 定义的变量，专门用来引用保存在  GitHub Settings 中的内容。
 
