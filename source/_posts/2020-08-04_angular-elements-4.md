@@ -1,5 +1,5 @@
 ---
-title: Angular Elements: Part IV: 在 Angular Elements(>=7) 上使用内容投影     
+title: Angular Elements: Part IV：在 Angular Elements(>=7) 上使用内容投影     
 date: 2020-08-04
 categories: angular
 ---
