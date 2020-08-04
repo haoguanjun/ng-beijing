@@ -1,5 +1,5 @@
 ---
-title: Angular Elements Part I: 使用 Web Components 4 步创建动态 Dashboard    
+title: Angular Elements Part I 使用 Web Components 4 步创建动态 Dashboard    
 date: 2020-08-04
 categories: angular
 ---
@@ -8,7 +8,7 @@ categories: angular
 <!-- more -->
 
 
-# Angular Elements Part I: 使用 Web Components 4 步创建动态 Dashboard
+# Angular Elements Part I 使用 Web Components 4 步创建动态 Dashboard
 
 本文是 Angular Elements 系列的第 1 篇。
 
