@@ -1,11 +1,11 @@
 ---
-title: Angular Elements：Part IV：在 Angular Elements(>=7) 上使用内容投影     
+title: Angular Elements：Part IV： 在 Angular Elements(>=7) 上使用内容投影     
 date: 2020-08-04
 categories: angular
 ---
 本文介绍如何使用 Shadow DOM v1 和 `slots`。为了演示起见，这里使用一个组件来展示一张图。<!-- more -->
 
-# Angular Elements: Part IV: 在 Angular Elements(>=7) 上使用内容投影
+# Angular Elements: Part IV：在 Angular Elements(>=7) 上使用内容投影
 
 
 
