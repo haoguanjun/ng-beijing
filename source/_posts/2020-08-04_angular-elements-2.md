@@ -1,12 +1,12 @@
 ---
-title: Angular Elements Part II: 延迟与外部 Web Components     
+title: Angular Elements Part II：延迟与外部 Web Components     
 date: 2020-08-04
 categories: angular
 ---
 本文中，我将继续，我将根据需要加载 Web Componets，所以，我演示两种方式：延迟和加载外部的组件。
 <!-- more -->
 
-# Angular Elements Part II: 延迟与外部 Web Components
+# Angular Elements Part II：延迟与外部 Web Components
 
 本文是 Angular Elements 系列的第 2 篇。
 
