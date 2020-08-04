@@ -1,5 +1,5 @@
 ---
-title: Angular Elements Part V: CLI 中构建 Angular Elements 的选项     
+title: Angular Elements Part V：CLI 中构建 Angular Elements 的选项     
 date: 2020-08-04
 categories: angular
 ---
