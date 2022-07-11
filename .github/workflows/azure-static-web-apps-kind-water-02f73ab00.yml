@@ -18,19 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-      - uses: actions/checkout@v2
-          
-      - name: Setup Node 10.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-
-      # Runs a set of commands using the runners shell
-      - name: 'npm install, build, and test'
-        run: |
-           npm install
-           npm run build
-
+      - uses: actions/checkout@v2        
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
