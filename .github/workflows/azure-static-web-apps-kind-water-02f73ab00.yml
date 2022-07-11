@@ -19,8 +19,6 @@ jobs:
     name: Build and Deploy Job
     steps:
       - uses: actions/checkout@v2
-        with:
-          submodules: true
           
       - name: Setup Node 10.x
         uses: actions/setup-node@v1
